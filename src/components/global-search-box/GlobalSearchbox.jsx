@@ -1,6 +1,5 @@
-import { faLocationDot, faPerson , faBriefcase , faDumbbell } from '@fortawesome/free-solid-svg-icons';
-import DateRangePicker from 'components/ux/data-range-picker/DateRangePicker';
-import DropdownButton from 'components/ux/dropdown-button/DropdownButton';
+import { faLocationDot,  faBriefcase , faDumbbell } from '@fortawesome/free-solid-svg-icons';
+
 import Input from 'components/ux/input/Input';
 
 /**
@@ -21,34 +20,19 @@ import Input from 'components/ux/input/Input';
  * @param {Function} props.setisDatePickerVisible - Callback to set the visibility state of the date picker.
  * @param {Object} props.dateRange - The selected date range.
  */
-const dropdownOptions = [
-  { name: '1 Year'},
-  { name: '2 Year'},
-  { name: '3 Year'},
-  { name: '4 Year'},
-  { name: '5 Year'},
-  { name: '6 Year'},
-  { name: '7 Year'},
-  { name: '8 Year'},
-  { name: '9 Year'},
-  { name: '10 Year'},
-  { name: '11 Year'},
-  { name: '12 Year'}
 
-];
 const GlobalSearchBox = (props) => {
   const {
-    locationInputValue,
+   
     numGuestsInputValue,
-    isDatePickerVisible,
+   
     onLocationChangeInput,
     onNumGuestsInputChange,
-    onDatePickerIconClick,
-    locationTypeheadResults,
+ 
+   
     onSearchButtonAction,
-    onDateChangeHandler,
-    setisDatePickerVisible,
-    dateRange,
+  
+    
   } = props;
   return (
     <div className="flex flex-wrap flex-col lg:flex-row hero-content__search-box">

@@ -1,7 +1,7 @@
 import { faStar, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useNavigate } from 'react-router-dom';
-import { formatPrice } from 'utils/price-helpers';
+
 
 /**
  * HotelViewCard Component
@@ -24,7 +24,7 @@ const HotelViewCard = (props) => {
     title,
     subtitle,
     benefits,
-    price,
+ 
     ratings,
   } = props;
   const navigate = useNavigate();

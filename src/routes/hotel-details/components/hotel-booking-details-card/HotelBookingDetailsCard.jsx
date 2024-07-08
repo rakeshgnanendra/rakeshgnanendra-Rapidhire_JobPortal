@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import Select from 'react-select';
+
 import { differenceInCalendarDays } from 'date-fns';
-import DateRangePicker from 'components/ux/data-range-picker/DateRangePicker';
+
 import { networkAdapter } from 'services/NetworkAdapter';
-import { DEFAULT_TAX_DETAILS } from 'utils/constants';
+
 import { useNavigate } from 'react-router-dom';
-import queryString from 'query-string';
+
 import { formatPrice } from 'utils/price-helpers';
 
 
 import Toast from 'components/ux/toast/Toast';
-import format from 'date-fns/format';
-import Input from 'components/ux/input/Input';
+
+
 
 /**
  * A component that displays the booking details for a hotel, including date range, room type, and pricing.
@@ -29,7 +29,7 @@ const HotelBookingDetailsCard = ({ hotelCode }) => {
   const [errorMessage, setErrorMessage] = useState('');
 
   // State for date range
-  const [dateRange, setDateRange] = useState([
+  const [ setDateRange] = useState([
     {
       startDate: new Date(),
       endDate: null,
@@ -52,60 +52,17 @@ const HotelBookingDetailsCard = ({ hotelCode }) => {
   });
 
   // State for pricing and booking details
-  const [total, setTotal] = useState(0);
-  const [taxes, setTaxes] = useState(0);
+  const [ setTotal] = useState(0);
+  const [ setTaxes] = useState(0);
   const [bookingPeriodDays, setBookingPeriodDays] = useState(1);
   const [bookingDetails, setBookingDetails] = useState({});
 
   // Options for guests and rooms
-  const guestOptions = Array.from(
-    { length: bookingDetails.maxGuestsAllowed },
-    (_, i) => ({ value: i + 1, label: `${i + 1} guest` })
-  );
-  const roomNumberOptions = Array.from(
-    { length: bookingDetails.maxRoomsAllowedPerGuest },
-    (_, i) => ({ value: i + 1, label: `${i + 1} room` })
-  );
-  const roomOptions = [
-    {
-      value: '1 King Bed Standard Non Smoking',
-      label: '1 King Bed Standard Non Smoking',
-    },
-  ];
+  
+  
+  
 
-  // Handlers for select changes
-  const handleRoomTypeChange = (selectedOption) => {
-    setSelectedRoom(selectedOption);
-    calculatePrices();
-  };
-  const handleGuestsNumberChange = (selectedOption) => {
-    setSelectedGuests(selectedOption);
-  };
-  const handleRoomsNumberChange = (selectedOption) => {
-    setSelectedRooms(selectedOption);
-    calculatePrices();
-  };
 
-  // Handler for date picker visibility toggle
-  const onDatePickerIconClick = () => {
-    setisDatePickerVisible(!isDatePickerVisible);
-  };
-
-  /**
-   * Handler for date range changes. Updates the booking period days and recalculates prices.
-   *
-   * @param {Object} ranges - The selected date ranges.
-   */
-  const onDateChangeHandler = (ranges) => {
-    const { startDate, endDate } = ranges.selection;
-    setDateRange([ranges.selection]);
-    const days =
-      startDate && endDate
-        ? differenceInCalendarDays(endDate, startDate) + 1
-        : 1;
-    setBookingPeriodDays(days);
-    calculatePrices();
-  };
 
   /**
    * Calculates the total price and taxes based on the selected room and booking period.
@@ -124,9 +81,7 @@ const HotelBookingDetailsCard = ({ hotelCode }) => {
     }
     setTaxes(`${formatPrice(totalGst)} INR`);
   };
-  const OnHandlenamechange = () => {
-
-  };
+  
 
   const onBookingConfirm = () => {
     alert("Your Job Application has been submited Successfully! Your Application Id : RHAPPL0908765")
@@ -136,14 +91,14 @@ const HotelBookingDetailsCard = ({ hotelCode }) => {
     // }
   // const checkIn = format(dateRange[0].startDate, 'dd-MM-yyyy');
   // const checkOut = format(dateRange[0].endDate, 'dd-MM-yyyy');
-    const queryParams = {
-       hotelCode,
-    //   checkIn,
-      // checkOut,
-       guests: selectedGuests.value,
-      rooms: selectedRooms.value,
-       hotelName: bookingDetails.name.replaceAll(' ', '-'), // url friendly hotel name
-    };
+    // const queryParams = {
+    //    hotelCode,
+    // //   checkIn,
+    //   // checkOut,
+    //    guests: selectedGuests.value,
+    //   rooms: selectedRooms.value,
+    //    hotelName: bookingDetails.name.replaceAll(' ', '-'), // url friendly hotel name
+    // };
 
     const url = `/`;
     navigate(url, {
