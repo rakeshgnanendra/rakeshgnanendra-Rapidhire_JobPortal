@@ -24,7 +24,7 @@ import Input from 'components/ux/input/Input';
 const GlobalSearchBox = (props) => {
   const {
    
-    numGuestsInputValue,
+   
    
     onLocationChangeInput,
     onNumGuestsInputChange,
@@ -40,7 +40,7 @@ const GlobalSearchBox = (props) => {
   
       <Input
         size="sm"
-        value={numGuestsInputValue}
+        
         onChangeInput={onNumGuestsInputChange}
         placeholder="Job Description"
         icon={faDumbbell}

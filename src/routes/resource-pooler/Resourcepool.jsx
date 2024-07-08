@@ -1,6 +1,5 @@
 
-import { networkAdapter } from 'services/NetworkAdapter';
-import React, { useEffect, useState } from 'react';
+
 import ReactImageGallery from 'react-image-gallery';
 
 const Resourcepool = () => {

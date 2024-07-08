@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import { differenceInCalendarDays } from 'date-fns';
+
 
 import { networkAdapter } from 'services/NetworkAdapter';
 
 import { useNavigate } from 'react-router-dom';
 
-import { formatPrice } from 'utils/price-helpers';
+
 
 
 import Toast from 'components/ux/toast/Toast';
@@ -21,7 +21,7 @@ import Toast from 'components/ux/toast/Toast';
  */
 const HotelBookingDetailsCard = ({ hotelCode }) => {
   // State for date picker visibility
-  const [isDatePickerVisible, setisDatePickerVisible] = useState(false);
+ 
 
   const navigate = useNavigate();
 
@@ -29,32 +29,23 @@ const HotelBookingDetailsCard = ({ hotelCode }) => {
   const [errorMessage, setErrorMessage] = useState('');
 
   // State for date range
-  const [ setDateRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: 'selection',
-    },
-  ]);
+  
 
   // State for selected room, guests, and rooms
-  const [selectedRoom, setSelectedRoom] = useState({
+  const [selectedRoom] = useState({
     value: '1 King Bed Standard Non Smoking',
     label: '1 King Bed Standard Non Smoking',
   });
-  const [selectedGuests, setSelectedGuests] = useState({
-    value: 2,
-    label: '2 guests',
-  });
-  const [selectedRooms, setSelectedRooms] = useState({
+ 
+  const [selectedRooms] = useState({
     value: 1,
     label: '1 room',
   });
 
   // State for pricing and booking details
-  const [ setTotal] = useState(0);
-  const [ setTaxes] = useState(0);
-  const [bookingPeriodDays, setBookingPeriodDays] = useState(1);
+ 
+ 
+  const [bookingPeriodDays] = useState(1);
   const [bookingDetails, setBookingDetails] = useState({});
 
   // Options for guests and rooms
@@ -68,18 +59,9 @@ const HotelBookingDetailsCard = ({ hotelCode }) => {
    * Calculates the total price and taxes based on the selected room and booking period.
    */
   const calculatePrices = () => {
-    const pricePerNight = bookingDetails.currentNightRate * selectedRooms.value;
-    const gstRate =
-      pricePerNight <= 2500 ? 0.12 : pricePerNight > 7500 ? 0.18 : 0.12;
-    const totalGst = (pricePerNight * bookingPeriodDays * gstRate).toFixed(2);
-    const totalPrice = (
-      pricePerNight * bookingPeriodDays +
-      parseFloat(totalGst)
-    ).toFixed(2);
-    if (!isNaN(totalPrice)) {
-      setTotal(`${formatPrice(totalPrice)} INR`);
-    }
-    setTaxes(`${formatPrice(totalGst)} INR`);
+    
+   
+   
   };
   
 

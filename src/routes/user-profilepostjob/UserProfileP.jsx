@@ -3,8 +3,7 @@ import Tabs from 'components/ux/tabs/Tabs';
 import TabPanel from 'components/ux/tab-panel/TabPanel';
 import {
   faAddressCard,
-  faHotel,
-  faCreditCard,
+ 
   faBriefcase,
   faBraille,
 } from '@fortawesome/free-solid-svg-icons';

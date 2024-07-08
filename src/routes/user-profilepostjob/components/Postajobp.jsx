@@ -13,10 +13,7 @@ const Postajobp = ({
   const [editIndex, setEditIndex] = useState(-1); // -1 means no edit is active
   const [currentEdit, setCurrentEdit] = useState({});
 
-  const handleEdit = (index) => {
-    setEditIndex(index);
-    setCurrentEdit({ ...userPaymentMethodsData.data[index] });
-  };
+ 
 
   const handleCancel = () => {
     setEditIndex(-1);

@@ -3,22 +3,22 @@ import Tabs from 'components/ux/tabs/Tabs';
 import TabPanel from 'components/ux/tab-panel/TabPanel';
 import {
   faAddressCard,
-  faHotel,
-  faCreditCard,
+ 
+
   faBriefcase,
-  faBraille,
+ 
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from 'contexts/AuthContext';
 import { networkAdapter } from 'services/NetworkAdapter';
 import { useContext } from 'react';
-import HotelViewCard from 'components/hotel-view-card/HotelViewCard';
-import PaymentMethodsPanel from './components/PaymentsMethodsPanelRes';
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import useOutsideClickHandler from 'hooks/useOutsideClickHandler';
 import { useNavigate } from 'react-router-dom';
-import BookingPanel from './components/BookingPanelRes';
+
 import PostajobRes from './components/PostajobRes';
 import ProfileDetailsPanel from './components/ProfileDetailsPanelRes';
 
@@ -37,14 +37,14 @@ const UserProfileRes = () => {
   const [isTabsVisible, setIsTabsVisible] = useState(false);
 
   // Fetch user bookings data
-  const [userBookingsData, setUserBookingsData] = useState({
+  const [ setUserBookingsData] = useState({
     isLoading: true,
     data: [],
     errors: [],
   });
 
   // Fetch user payment methods data
-  const [userPaymentMethodsData, setUserPaymentMethodsData] = useState({
+  const [ setUserPaymentMethodsData] = useState({
     isLoading: true,
     data: [],
     errors: [],
@@ -92,7 +92,7 @@ const UserProfileRes = () => {
       }
     };
     getInitialData();
-  }, []);
+  }, [setUserBookingsData , setUserPaymentMethodsData]);
 
   return (
     <>

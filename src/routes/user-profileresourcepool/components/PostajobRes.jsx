@@ -1,6 +1,6 @@
-import { useState } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { faStar, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 /* PaymentMethodsPanel
@@ -13,29 +13,11 @@ const PostajobRes = ({
   userPaymentMethodsData,
   setUserPaymentMethodsData,
 }) => {
-  const [editIndex, setEditIndex] = useState(-1); // -1 means no edit is active
-  const [currentEdit, setCurrentEdit] = useState({});
+ // -1 means no edit is active
+  
   
 
-  const handleEdit = (index) => {
-    setEditIndex(index);
-    setCurrentEdit({ ...userPaymentMethodsData.data[index] });
-  };
-
-  const handleCancel = () => {
-    setEditIndex(-1);
-  };
-
-  const handleSave = () => {
-    const updatedPaymentMethods = [...userPaymentMethodsData.data];
-    updatedPaymentMethods[editIndex] = currentEdit;
-    setUserPaymentMethodsData({ data: updatedPaymentMethods });
-    setEditIndex(-1);
-  };
-
-  const handleChange = (e, field) => {
-    setCurrentEdit({ ...currentEdit, [field]: e.target.value });
-  };
+  
 
   return (
     <div
