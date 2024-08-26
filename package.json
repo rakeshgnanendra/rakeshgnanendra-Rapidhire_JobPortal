@@ -11,7 +11,7 @@
     "date-fns": "^3.6.0",
     "firebase": "^10.12.3",
     "formik": "^2.4.5",
-    "husky": "^8.0.3",
+    "husky": "^9.1.5",
     "lodash": "^4.17.21",
     "miragejs": "^0.1.48",
     "query-string": "^9.0.0",
